@@ -1,0 +1,390 @@
+body {
+    font-family: 'Cairo', sans-serif;
+    background: radial-gradient(circle at top right, #f3e7d5, transparent 70%),
+                linear-gradient(135deg, #f8f3eb 0%, #e8d8c3 100%);
+    min-height: 100vh;
+    min-height: 100svh;
+    isolation: isolate;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='46' viewBox='0 0 72 46'%3E%3Ctext x='5' y='19' fill='%239a6847' fill-opacity='.16' font-family='Arial,sans-serif' font-size='8' font-weight='600' transform='rotate(-18 36 23)'%3EWesal%3C/text%3E%3C/svg%3E");
+    background-repeat: repeat;
+}
+
+.glass-card {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 251, 245, 0.76);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    box-shadow: 0 20px 40px -15px rgba(92, 63, 41, 0.15);
+}
+
+[class~="bg-indigo-400/20"] {
+    background-color: rgba(196, 151, 105, 0.2) !important;
+}
+
+[class~="bg-purple-400/20"] {
+    background-color: rgba(177, 123, 80, 0.18) !important;
+}
+
+.text-slate-300 {
+    color: #d5c4af !important;
+}
+
+.text-slate-400 {
+    color: #9a8774 !important;
+}
+
+.text-slate-500 {
+    color: #806d5d !important;
+}
+
+.text-slate-600 {
+    color: #70543f !important;
+}
+
+.text-slate-700 {
+    color: #594637 !important;
+}
+
+.text-slate-800 {
+    color: #49382b !important;
+}
+
+.border-slate-100 {
+    border-color: #e8dccb !important;
+}
+
+/* تصميم اسم Wesal بشكل أنيق وعصري */
+.brand-title {
+    font-family: 'Outfit', 'Cairo', sans-serif;
+    font-size: 1.85rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, #754c35 0%, #9a6847 50%, #bd8555 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 10px rgba(120, 79, 50, 0.15);
+}
+
+.brand-arabic {
+    direction: rtl;
+    display: inline-block;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #8a5a3c;
+}
+
+.brand-waw {
+    position: relative;
+    display: inline-block;
+}
+
+.brand-waw::after {
+    content: "";
+    position: absolute;
+    width: 0.28em;
+    height: 0.1em;
+    left: 50%;
+    bottom: -0.12em;
+    border-radius: 999px;
+    background: currentColor;
+    transform: translateX(-50%) rotate(-18deg);
+}
+
+#car-badge-container {
+    background-color: rgba(243, 231, 213, 0.8);
+    border-color: #dfc7ab;
+    color: #805638;
+}
+
+#selection-screen > div:first-child {
+    background-color: rgba(243, 231, 213, 0.7);
+    border-color: #dfc7ab;
+    color: #70543f;
+}
+
+#plateLettersInput,
+#plateNumbersInput,
+#messageBox,
+#quickMessages button {
+    background-color: #fbf7f0;
+    border-color: #dfd0bd;
+    color: #594637;
+}
+
+#plateLettersInput:focus,
+#plateNumbersInput:focus,
+#messageBox:focus {
+    border-color: #a77753;
+    box-shadow: 0 0 0 2px rgba(167, 119, 83, 0.25);
+}
+
+#quickMessages button:hover {
+    background-color: #f0e2d0;
+    color: #754c35;
+}
+
+#quickMessages #changeCarBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.45rem 0.75rem;
+    border: 1px solid #d8bea3;
+    border-radius: 9999px;
+    background: #f5eadb;
+    color: #8a5a3c;
+    font-weight: 700;
+    line-height: 1.4;
+    cursor: pointer;
+    transition: background-color 150ms ease, border-color 150ms ease, transform 150ms ease;
+}
+
+#quickMessages #changeCarBtn:hover {
+    border-color: #b98d68;
+    background: #ead7bf;
+}
+
+#quickMessages #changeCarBtn:active {
+    transform: scale(0.97);
+}
+
+#quickMessages #changeCarBtn:focus-visible,
+#searchPlateBtn:focus-visible,
+#submitBtn:focus-visible,
+#sendAnotherBtn:focus-visible,
+#quickMessages button:focus-visible {
+    outline: 3px solid rgba(138, 90, 60, 0.45);
+    outline-offset: 3px;
+}
+
+#searchPlateBtn,
+#submitBtn,
+#sendAnotherBtn,
+#errorMsg button {
+    background-color: #8a5a3c;
+    background-image: linear-gradient(to right, #8a5a3c, #b47a4f);
+    box-shadow: 0 8px 18px rgba(120, 79, 50, 0.2);
+}
+
+#searchPlateBtn:hover,
+#submitBtn:hover,
+#sendAnotherBtn:hover,
+#errorMsg button:hover {
+    background-color: #754c35;
+    background-image: linear-gradient(to right, #754c35, #9a6847);
+}
+
+#noCarFoundMsg {
+    border-color: #dfc7ab;
+    background-image: linear-gradient(to left, #f5eadb, #fffaf3);
+}
+
+#noCarFoundMsg > div {
+    background-color: #ead7bf;
+    color: #8a5a3c;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+input,
+textarea,
+button {
+    font: inherit;
+}
+
+img,
+svg {
+    max-width: 100%;
+}
+
+@media (max-width: 600px) {
+    body {
+        display: block !important;
+        padding:
+            max(0.75rem, env(safe-area-inset-top))
+            max(0.75rem, env(safe-area-inset-right))
+            max(0.75rem, env(safe-area-inset-bottom))
+            max(0.75rem, env(safe-area-inset-left)) !important;
+    }
+
+    .glass-card {
+        margin: 0.5rem auto;
+        width: min(90%, 25rem);
+        max-width: 25rem;
+        padding: clamp(0.875rem, 4vw, 1.125rem) !important;
+        border-radius: 1.375rem;
+        background: rgba(255, 251, 245, 0.62);
+        backdrop-filter: blur(7px);
+        -webkit-backdrop-filter: blur(7px);
+    }
+
+    .glass-card > .text-center {
+        margin-bottom: 0.875rem;
+    }
+
+    .glass-card > .text-center > p {
+        font-size: 0.8125rem;
+        line-height: 1.45;
+    }
+
+    .glass-card > .text-center > div:first-child svg {
+        width: 6.5rem;
+        height: 3.75rem;
+    }
+
+    #form-container {
+        min-width: 0;
+    }
+
+    #selection-screen {
+        gap: 0.75rem;
+    }
+
+    #selection-screen > div:first-child {
+        padding: 0.75rem;
+        font-size: 0.8125rem;
+        line-height: 1.45;
+    }
+
+    #selection-screen label {
+        display: block;
+        margin-bottom: 0.25rem;
+        font-size: 0.8125rem;
+    }
+
+    #plateLettersInput,
+    #plateNumbersInput {
+        min-width: 0;
+        min-height: 2.75rem;
+        padding: 0.625rem;
+        font-size: 1rem;
+    }
+
+    #searchPlateBtn,
+    #submitBtn,
+    #sendAnotherBtn,
+    #errorMsg button {
+        min-height: 3rem;
+        touch-action: manipulation;
+    }
+
+    #searchPlateBtn {
+        width: 100%;
+    }
+
+    #quickMessages > div:first-child {
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.625rem;
+    }
+
+    #quickMessages > div:first-child p {
+        flex: 1 1 100%;
+        min-width: 0;
+        max-width: none;
+        margin: 0;
+        text-align: center;
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+
+    #changeCarBtn {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        min-height: 2.75rem;
+        padding-inline: 1rem;
+        font-size: 0.875rem;
+        touch-action: manipulation;
+    }
+
+    #quickMessages > div:last-child {
+        display: flex;
+        flex-direction: column;
+        gap: 0.625rem;
+    }
+
+    #quickMessages > div:last-child button {
+        width: 100%;
+        min-height: 2.75rem;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        text-align: center;
+        touch-action: manipulation;
+    }
+
+    #messageBox {
+        min-height: 6rem;
+        padding: 0.75rem;
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    #car-badge-container {
+        max-width: 100%;
+        min-height: 2.75rem;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        font-size: 0.875rem;
+        line-height: 1.4;
+    }
+
+    #successMsg button {
+        width: 100%;
+    }
+
+    #noCarFoundMsg {
+        padding: 0.75rem;
+    }
+
+    .glass-card > div:last-child {
+        font-size: 0.75rem;
+        line-height: 1.6;
+        text-align: center;
+    }
+}
+
+@media (max-width: 380px) {
+    #selection-screen .grid.grid-cols-2 {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .brand-title {
+        font-size: clamp(1.5rem, 8vw, 1.65rem);
+    }
+
+    .brand-arabic {
+        font-size: 1.125rem;
+    }
+
+    #car-badge-container {
+        padding-inline: 0.75rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
